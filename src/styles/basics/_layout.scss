@@ -1,0 +1,15 @@
+// my main layouts
+
+.main-layout {
+    max-width: $normal-breakpoint;
+    margin: 0 auto;
+    transition: max-width 0.3s;
+
+    @media (max-width: $narrow-breakpoint) {
+        //define max width
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        //define max width
+    }
+}
