@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-
-import { booksReducer } from './reducers/booksReducer.js';
+import { prefsReducer } from './reducers/prefReducer';
+import { trackReducer } from './reducers/trackReducer';
 
 const rootReducer = combineReducers({
-
-    booksModule: booksReducer
+    trackModule: trackReducer,
+    prefsModule: prefsReducer
 });
 
 
@@ -14,7 +14,7 @@ export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(t
 
 
 // For Debug
-window.theStore = store;
-store.subscribe(() => {
-    console.log('Global State is:', store.getState())
-})
+// window.theStore = store;
+// store.subscribe(() => {
+//     console.log('Global State is:', store.getState())
+// })

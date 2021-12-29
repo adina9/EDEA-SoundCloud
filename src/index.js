@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/global.scss'
-import {App} from './App.jsx';
-import { HashRouter as Router } from 'react-router-dom'
+import { App } from './App.jsx';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { store } from './store/store.js'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+      <Provider store={store}>
+        <App />
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

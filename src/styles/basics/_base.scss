@@ -3,12 +3,20 @@
 }
 
 html {
-    font-family: 'montserrat', sans-serif;
+    font-family: "montserrat", sans-serif;
     scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
+}
+
+.App {
+    @include flex-center {
+        background-color: $main-color;
+        height: 100vh;
+        width: 100vw;
+    }
 }
 
 a {
@@ -20,6 +28,10 @@ button {
     cursor: pointer;
 }
 
-
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 }

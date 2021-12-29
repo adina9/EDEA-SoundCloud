@@ -11,9 +11,10 @@
 @import "./basics/buttons.scss";
 
 // Pages
-@import "./pages/Home.scss";
-@import "./pages/About.scss";
+@import "./pages/TrackApp.scss";
 
-// Components
+// Components:
+@import "./cmps/AppSearch";
 @import "./cmps/AppFooter";
-@import "./cmps/AppHeader";
+@import "./cmps/BtnsControl";
+@import "./cmps/TrackList";

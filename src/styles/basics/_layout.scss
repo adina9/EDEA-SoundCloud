@@ -6,10 +6,10 @@
     transition: max-width 0.3s;
 
     @media (max-width: $narrow-breakpoint) {
-        //define max width
+        max-width: $narrow-breakpoint;
     }
 
     @media (max-width: $mobile-breakpoint) {
-        //define max width
+        max-width: $mobile-breakpoint;
     }
 }
