@@ -1,5 +1,6 @@
 .app-search {
-    background-color: #ff5722;
+    // background-color: #ff5722;
+    background-color: #cdcdcd;
     width: 55%;
     height: 40px;
     margin: 4% auto;
@@ -16,7 +17,7 @@
             background-color: transparent;
             border: none;
             padding: 0 12px;
-            color: white;
+            color: $main-color;
             font-size: large;
             font-family: monospace;
             &:focus {
@@ -26,10 +27,14 @@
                 color: $second-color;
             }
         }
+        .MuiSvgIcon-root {
+            font-size: larger;
+        }
     }
     &.focused input {
-        background-color: #ff7e55;
-        border-radius: 5px;
-        height: 65%;
+        // background-color: #ff7e55;
+        // background-color: #fff;
+        // border-radius: 5px;
+        // height: 65%;
     }
 }

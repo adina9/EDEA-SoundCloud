@@ -5,15 +5,12 @@
         display: flex;
         cursor: pointer;
         color: wheat;
-        transition: .3s ease;
+        transition: 0.3s ease;
     }
     .MuiSvgIcon-root {
-        font-size: xxx-large;
-        &:hover{
-            color: $main-color;
-        }
+        @include svg-icon;
     }
     .disaply-btns {
-        width: 18%;
+        // width: 18%;
     }
 }

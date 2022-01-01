@@ -1,8 +1,22 @@
 .track-app {
-    background-color:$second-color;
+    background-color: $second-color;
     width: 70%;
     height: 80%;
-    box-shadow: 7px 17px 100px 7px rgba(0, 0, 0, 0.432) , 0px 30px 60px -30px black;
+    box-shadow: 7px 17px 100px 7px rgba(0, 0, 0, 0.432), 0px 30px 60px -30px black;
     border-radius: 5px;
-    // @include flex-center;
+    .back-arrow {
+        @include svg-icon {
+            color: aliceblue;
+            transform: rotate(180deg);
+            position: absolute;
+            left: 4%;
+            top: 4%;
+        }
+    }
+    .searches-icon {
+        right: 5%;
+        top: 4%;
+        font-size: xxx-large;
+        color: wheat;
+    }
 }

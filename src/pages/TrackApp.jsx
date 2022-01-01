@@ -3,48 +3,67 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppSearch } from "../cmps/AppSearch";
 import { BtnsControl } from "../cmps/BtnsControl";
 import { TrackList } from "../cmps/TrackList";
-import { loadTracks, chooseTrack } from "../store/actions/trackAction";
-import { NavLink, Switch, Route } from 'react-router-dom'
+import { queryTracks, chooseTrack, saveSearch } from "../store/actions/trackAction";
+import { Switch, Route, Link } from 'react-router-dom'
 import { TrackDetails } from './TrackDetails';
+import { RecentSearches } from './RecentSearches';
 
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+// import searchList from '../assets/imgs/searchList.png'
+// import svgSearchIcon from '../assets/imgs/searchList.svg'
+
+// import QueueMusicRoundedIcon from '@material-ui/icons/QueueMusicRounded';
+import YoutubeSearchedForRoundedIcon from '@material-ui/icons/YoutubeSearchedForRounded';
 
 export const TrackApp = ({ history: { push } }) => {
 
     const [currTracks, setCurrTracks] = useState([])
+    const [isSearchClicked, setIsSearchClicked] = useState(false)
 
     const dispatch = useDispatch()
-    const { tracks, currTrack } = useSelector(state => state.trackModule)
+    const { tracks, currTrack, searches } = useSelector(state => state.trackModule)
+    const { isTile } = useSelector(state => state.prefsModule)
 
     useEffect(() => {
-        if (currTrack) push(`track/${currTrack.key.substr(1)}`)
-    }, [currTrack])
+        dispatch(queryTracks())
+    }, [])
 
-    const onQueryTracks = (searchBy) => {
-        dispatch(loadTracks(searchBy))
-        setCurrTracks(tracks.slice(0, 6))
+    useEffect(() => {
+        if (currTrack) push(`/track/${currTrack.key.substr(1)}`)
+        if (tracks?.length) setCurrTracks(tracks.slice(0, 6))
+        if (isSearchClicked) push('/searches')
+    }, [currTrack, tracks, isSearchClicked])
+
+
+    const onQueryTracks = async (searchBy) => {
+        dispatch(queryTracks(searchBy))
+        if (!searches.includes(searchBy)) dispatch(saveSearch(searchBy))
     }
 
     const onChooseTrack = async (track) => {
         dispatch(chooseTrack(track))
     }
 
-    const onGoNext = () => {
-        console.log('should go next');
-        Array.prototype.cycle = function (str) {
-            const i = this.indexOf(str);
-            if (i === -1) return undefined;
-            return this[(i + 1) % this.length];
-        };
 
-        //TODO: setCurrTracks with the next 6 tracks. (more - if the final group is less than 6, show 6 from the end)
+    const onBackOrNext = (val) => {
+        const lasdIdx = tracks.indexOf(val ? currTracks[currTracks.length - 1] : currTracks[0])
+        setCurrTracks(tracks.slice(val ? lasdIdx + 1 : lasdIdx - 6, val ? lasdIdx + 7 : lasdIdx))
     }
 
     return (
         <section className="track-app flex a-center col pos r">
+            {currTrack && <ArrowForwardIcon className="back-arrow" onClick={() => {
+                // dispatch(chooseTrack(null))
+                push('/')
+            }} />}
             <AppSearch onSearch={onQueryTracks} />
-            {!currTrack && <TrackList tracks={ currTracks} onChooseTrack={onChooseTrack} />}
-            <Route path="/track/:key" component={TrackDetails}/>
-            {!currTrack && <BtnsControl goNext={onGoNext} />}
+            <Link to='/searches'><YoutubeSearchedForRoundedIcon className="search-icon pos a" onClick={() => setIsSearchClicked(true)} /></Link>
+            {!currTrack && !isSearchClicked && <TrackList tracks={currTracks} isTile={isTile} onChooseTrack={onChooseTrack} />}
+            <Switch>
+                <Route path='/searches' component={RecentSearches} />
+                <Route path="/track/:key" component={TrackDetails} />
+            </Switch>
+            {!currTrack && <BtnsControl backOrNext={onBackOrNext} />}
         </section>
     )
 }

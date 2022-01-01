@@ -10,6 +10,7 @@ export const TrackDetails = () => {
 
     const { currTrack } = useSelector(state => state.trackModule)
     useEffect(() => {
+        // dispatch(loadCurrTrack())
         console.log('detialssss');
     }, [])
     console.log('currTrack in details:', currTrack);

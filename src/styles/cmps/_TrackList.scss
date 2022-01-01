@@ -1,7 +1,39 @@
-.track-list{
+.track-list {
     gap: 10px;
-    .track-preview{
-        padding: 0 12px;
-        background-color: wheat;
+    padding: 2% 5%;
+    .track-preview {
+        @include flex-center {
+            padding: 0 12px;
+            background-color: #121222;
+            border-radius: 5px;
+            color: white;
+            height: 50px;
+            font-size: x-large;
+            font-family: cursive;
+            transition: hover 0.3s ease;
+            cursor: pointer;
+            justify-content: space-between;
+            &:hover {
+                background-color: $main-color;
+            }
+        }
+        img {
+            display: none;
+        }
+    }
+    &.tile {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        .track-preview {
+            height: unset;
+            max-height: 150px;
+            font-size: 1.3em;
+            img {
+                display: block;
+            }
+            svg {
+                display: none;
+            }
+        }
     }
 }

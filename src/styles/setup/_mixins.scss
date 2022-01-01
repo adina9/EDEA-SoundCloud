@@ -31,6 +31,14 @@
     @content
 }
 
+@mixin svg-icon {
+    font-size: xxx-large;
+    &:hover {
+        color: $main-color;
+    }
+    @content
+}
+
 /* Media  Mixins */
 @mixin aspect-ratio($width, $height) {
     position: relative;
