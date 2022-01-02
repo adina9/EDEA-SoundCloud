@@ -1,18 +1,19 @@
 .track-list,
 .recent-searches {
     height: 70%;
-    justify-content: space-between;
+    justify-content: start;
     margin-top: 3vh;
     width: 90%;
+    gap: 15px;
     .track-preview,
     .search-preview {
         @include flex-center {
             padding: 0 12px;
             background-color: #16181a;
             border-radius: 5px;
-            color: white;
+            color: #ffb74d;
             height: 15%;
-            font-size: large;
+            font-size: medium;
             font-family: cursive;
             transition: 0.2s ease;
             cursor: pointer;
@@ -20,7 +21,7 @@
             justify-content: flex-start;
             gap: 3%;
             .MuiSvgIcon-root {
-                font-size: xxx-large;
+                font-size: xx-large;
             }
             &:hover {
                 box-shadow: 3px 6px 20px 0px #0000006e;

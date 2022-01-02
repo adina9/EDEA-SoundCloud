@@ -30,14 +30,14 @@ async function query(q) {
             return Promise.resolve(accArr)
         } else {
             const { data } = await axios.get(`https://api.mixcloud.com/search/?q=${q}&type=cloudcast`)
-            gTracks.push(...data.data)
+            gTracks = [...data.data]
             asyncStorageService.postMany(TRACK_KEY, gTracks)
             return Promise.resolve(gTracks)
         }
     }
     else {
         const { data } = await axios.get(`https://api.mixcloud.com/search/?q=${q}&type=cloudcast`)
-        gTracks.push(...data.data)
+        gTracks = [...data.data]
         console.log('storageArr after call:', gTracks)
         asyncStorageService.postMany(TRACK_KEY, gTracks)
         return Promise.resolve(gTracks)
@@ -58,5 +58,7 @@ async function choose(track) {
 }
 
 async function saveSearch(search) {
-    return Promise.resolve(await asyncStorageService.post(SEARCH_KEY, search))
+    const searches = await asyncStorageService.post(SEARCH_KEY, search)
+    console.log('searches:', searches)
+    return Promise.resolve(searches)
 }

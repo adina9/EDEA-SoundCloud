@@ -32,13 +32,11 @@ export function loadSearches() {
     }
 }
 
-export function setLastSearch(search, isIncluded) {
+export function setLastSearch(isIncluded, search) {
     return async dispatch => {
         try {
-            if (isIncluded) {
-                const searches = await trackService.saveSearch(search)
-                dispatch({ type: 'ADD_SEARCH', searches })
-            }
+            var searches = !isIncluded ? await trackService.saveSearch(search) : await trackService.querySearches()
+            dispatch({ type: 'SET_SEARCHES', searches })
             dispatch({ type: 'SET_LAST_SEARCH', search })
         } catch (err) {
             console.log('err in trackAction in setLastSearch:', err);

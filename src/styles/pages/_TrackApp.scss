@@ -19,7 +19,7 @@
         font-size: xxx-large;
         color: wheat;
     }
-    a:not(.back-to-tracks) {
+    a:not(.back-to-tracks) :not(.track-details) {
         position: absolute;
         color: #cdcdcd;
         right: 5%;

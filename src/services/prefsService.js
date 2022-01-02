@@ -14,7 +14,7 @@ async function loadPrefs() {
         if (Object.keys(prefs).length) return Promise.resolve(prefs)
         else {
             prefs = { isDarkMode: false, isTile: false }
-            return asyncStorageService.post(PREFS_KEY, prefs)
+            _savePrefs(prefs)
         }
     } catch (err) {
         console.log('err in prefsAction in loadPrefs:', err);
@@ -22,12 +22,17 @@ async function loadPrefs() {
 }
 
 async function setDisplay(val) {
-    return Promise.resolve(val)
+    const prefs = await asyncStorageService.query(PREFS_KEY)
+    prefs.isTile = val
+    _savePrefs(prefs)
 }
 
 async function setMode(val) {
     const prefs = await asyncStorageService.query(PREFS_KEY)
     prefs.isDarkMode = val
-    return Promise.resolve(await asyncStorageService.post(PREFS_KEY, prefs))
+    _savePrefs(prefs)
 }
 
+async function _savePrefs(prefs) {
+    return Promise.resolve(await asyncStorageService.post(PREFS_KEY, prefs))
+}

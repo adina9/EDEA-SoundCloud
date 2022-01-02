@@ -3,6 +3,7 @@
     width: 100%;
     padding: 0 5%;
     .imgs-container {
+        margin-top: 5%;
         img {
             width: 13vw;
             border-radius: 5px;
@@ -19,10 +20,17 @@
             }
         }
     }
+    a {
+        left: 5%;
+        position: absolute;
+        top: 5%;
+    }
     .click-img-elmnt {
+        height: 150.4px;
         text-align: center;
         p {
             @include p-style;
+            padding: 5%;
         }
     }
 }

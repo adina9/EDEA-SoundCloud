@@ -6,9 +6,12 @@
         cursor: pointer;
         color: wheat;
         transition: 0.3s ease;
+        z-index: 1;
         .MuiSvgIcon-root {
             @include svg-icon;
         }
+    }
+    .arrow-btns {
     }
     .disaply-btns {
         // width: 18%;

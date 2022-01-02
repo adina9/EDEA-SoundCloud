@@ -4,6 +4,7 @@ export function loadPrefs() {
     return async dispatch => {
         try {
             const prefs = await prefsService.loadPrefs()
+            console.log('prefs:', prefs)
             dispatch({ type: 'SET_PREFS', prefs })
         } catch (err) {
             console.log('err in trackAction in loadTracks:', err);
