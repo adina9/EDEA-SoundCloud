@@ -1,0 +1,36 @@
+.recent-searches {
+}
+.no-search {
+    width: 50%;
+    height: 50%;
+    top: 20%;
+    color: #161819;
+    .MuiSvgIcon-root {
+        width: 80%;
+        height: 80%;
+    }
+    p {
+        @include p-style;
+    }
+    a {
+        background-color: #f89401;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        padding: 5%;
+        text-transform: capitalize;
+        font-size: large;
+        box-shadow: 5px 2px 5px 0px #0000002e;
+        position: relative;
+        top: 10%;
+        transition: 0.1s ease;
+        justify-content: center;
+        height: 50px;
+        letter-spacing: 0.5px;
+        &:hover {
+            background-color: #0b0b0b;
+            color: #f89401;
+            font-weight: normal;
+        }
+    }
+}
