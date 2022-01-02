@@ -12,6 +12,8 @@
 
 // Pages
 @import "./pages/TrackApp.scss";
+@import "./pages/RecentSearches";
+@import "./pages/TrackDetails";
 
 // Components:
 @import "./cmps/AppSearch";
@@ -19,3 +21,4 @@
 @import "./cmps/BtnsControl";
 @import "./cmps/TrackList";
 @import "./cmps/TrackPlayer";
+@import "./cmps/ToggleWrapper";

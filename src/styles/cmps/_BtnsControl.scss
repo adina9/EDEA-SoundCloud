@@ -1,14 +1,14 @@
 .btns-control {
-    bottom: 6%;
+    bottom: 3%;
     width: 90%;
-    > * {
+    > *:not(.toggle-wrapper) {
         display: flex;
         cursor: pointer;
         color: wheat;
         transition: 0.3s ease;
-    }
-    .MuiSvgIcon-root {
-        @include svg-icon;
+        .MuiSvgIcon-root {
+            @include svg-icon;
+        }
     }
     .disaply-btns {
         // width: 18%;

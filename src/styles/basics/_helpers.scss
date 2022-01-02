@@ -41,6 +41,9 @@
     &.j-between {
         justify-content: space-between;
     }
+    &.j-around {
+        justify-content: space-around;
+    }
 }
 
 //positions
@@ -48,7 +51,7 @@
     &.a {
         position: absolute;
     }
-    &.r{
+    &.r {
         position: relative;
     }
 }

@@ -1,14 +1,10 @@
 import { trackService } from "../../services/trackService";
 
 
-
-
-
-export function queryTracks(q = 'adele') {
+export function queryTracks(q) {
     return async dispatch => {
         try {
             const tracks = await trackService.query(q)
-            console.log('tracks:', tracks)
             dispatch({ type: 'SET_TRACKS', tracks })
         } catch (err) {
             console.log('err in trackAction in loadTracks:', err);
@@ -35,13 +31,17 @@ export function loadSearches() {
         }
     }
 }
-export function saveSearch(search) {
+
+export function setLastSearch(search, isIncluded) {
     return async dispatch => {
         try {
-            const savedSearch = await trackService.saveSearch(search)
-            dispatch({ type: 'ADD_SEARCHES', search: savedSearch })
+            if (isIncluded) {
+                const searches = await trackService.saveSearch(search)
+                dispatch({ type: 'ADD_SEARCH', searches })
+            }
+            dispatch({ type: 'SET_LAST_SEARCH', search })
         } catch (err) {
-            console.log('err in trackAction in loadTracks:', err);
+            console.log('err in trackAction in setLastSearch:', err);
         }
     }
 }

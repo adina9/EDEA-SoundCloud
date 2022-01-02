@@ -28,10 +28,7 @@ function query(entityType) {
 function get(entityType, entityKey) {
   return query(entityType)
     .then(entities => {
-      console.log('wntities:', entities)
-      var t = entities.find(entity => entity.key === entityKey)
-      console.log('t:', t)
-      return t
+      return entities.find(entity => entity.key === entityKey)
     })
 }
 
@@ -41,7 +38,7 @@ function post(entityType, newEntity) {
     .then(entities => {
       entities.push(newEntity);
       _save(entityType, entities)
-      return newEntity;
+      return entities;
     })
 }
 
@@ -60,7 +57,7 @@ function put(entityType, updatedEntity) {
       const idx = entities.findIndex(entity => entity._id === updatedEntity._id);
       entities.splice(idx, 1, updatedEntity)
       _save(entityType, entities)
-      return updatedEntity;
+      return entities;
     })
 }
 

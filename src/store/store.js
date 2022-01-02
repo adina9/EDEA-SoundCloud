@@ -14,7 +14,7 @@ export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(t
 
 
 // For Debug
-// window.theStore = store;
-// store.subscribe(() => {
-//     console.log('Global State is:', store.getState())
-// })
+window.myStore = store;
+store.subscribe(() => {
+    console.log('Global State is:', store.getState().trackModule)
+})

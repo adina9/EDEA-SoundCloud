@@ -18,6 +18,8 @@ export const trackService = {
 }
 
 async function query(q) {
+
+    // const searches=await saveSearch
     var storageArr = await asyncStorageService.query(TRACK_KEY)
     if (storageArr.length) {
         let accArr = storageArr.reduce((acc, track) => {

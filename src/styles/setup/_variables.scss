@@ -6,8 +6,12 @@ $clr4: #95adbe;
 $clr5: #dff0ea;
 $clr6: #fff;
 
+$dark-color: #25292c;
+$light-color: #fcfcfc;
+
 $main-color: #10106e;
-$second-color: #070714;
+$second-color: $dark-color;
+
 
 // Breakpoints
 $mobile-breakpoint: 460px;

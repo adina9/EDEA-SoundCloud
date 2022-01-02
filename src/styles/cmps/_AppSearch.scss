@@ -1,9 +1,9 @@
 .app-search {
     // background-color: #ff5722;
     background-color: #cdcdcd;
-    width: 55%;
+    width: 40%;
     height: 40px;
-    margin: 4% auto;
+    margin-top: 4%;
     border-radius: 3px;
     transition: 0.5s ease;
     form {
@@ -17,7 +17,7 @@
             background-color: transparent;
             border: none;
             padding: 0 12px;
-            color: $main-color;
+            color: #0b0b0b;
             font-size: large;
             font-family: monospace;
             &:focus {
@@ -29,6 +29,21 @@
         }
         .MuiSvgIcon-root {
             font-size: larger;
+        }
+        .search-icon {
+            @include flex-center {
+                border: none;
+                height: 100%;
+                width: 40px;
+                margin-right: -12px;
+                border-radius: 0 3px 3px 0;
+                cursor: help;
+                background-color: transparent;
+            }
+            &.isActive {
+                background-color: #ffc107;
+                cursor: pointer;
+            }
         }
     }
     &.focused input {

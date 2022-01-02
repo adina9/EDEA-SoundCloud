@@ -1,7 +1,8 @@
 const initialState = {
     tracks: [],
     currTrack: null,
-    searches: []
+    searches: ['adele'],
+    lastSearch: 'adele'
 }
 export function trackReducer(state = initialState, action = {}) {
     switch (action.type) {
@@ -9,20 +10,15 @@ export function trackReducer(state = initialState, action = {}) {
             return { ...state, tracks: action.tracks }
         case 'SET_TRACK':
             return { ...state, currTrack: action.choosedTrack }
-        case 'ADD_SEARCHES':
+        case 'ADD_SEARCH':
             return {
                 ...state,
-                searches: [action.search, ...state.searches]
+                searches: [...action.searches]
             }
         case 'SET_SEARCHES':
             return { ...state, searches: action.searches }
-
-        case 'SAVE_BOOK':
-            const editedtracks = state.tracks.map(track => {
-                if (track._id === action.track._id) return action.track
-                return track
-            })
-            return { ...state, tracks: editedtracks }
+        case 'SET_LAST_SEARCH':
+            return { ...state, lastSearch: action.search }
         default:
             return state
     }
