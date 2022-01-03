@@ -17,7 +17,7 @@ $mobile-breakpoint: 600px;
 @mixin svg-icon {
     font-size: xxx-large;
     &:hover {
-        color: var(--g-clr);
+        color: black;
     }
     @content;
 }
