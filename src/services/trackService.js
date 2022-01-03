@@ -5,7 +5,6 @@ var axios = Axios.create({
     withCredentials: false
 })
 
-var gTracks = []
 
 const TRACK_KEY = 'trackDB'
 const SEARCH_KEY = 'searchDB'
@@ -18,8 +17,8 @@ export const trackService = {
 }
 
 async function query(q) {
-
-    // const searches=await saveSearch
+    
+    var tracks = []
     var storageArr = await asyncStorageService.query(TRACK_KEY)
     if (storageArr.length) {
         let accArr = storageArr.reduce((acc, track) => {
@@ -30,17 +29,17 @@ async function query(q) {
             return Promise.resolve(accArr)
         } else {
             const { data } = await axios.get(`https://api.mixcloud.com/search/?q=${q}&type=cloudcast`)
-            gTracks = [...data.data]
-            asyncStorageService.postMany(TRACK_KEY, gTracks)
-            return Promise.resolve(gTracks)
+            tracks = [...data.data]
+            asyncStorageService.postMany(TRACK_KEY, tracks)
+            return Promise.resolve(tracks)
         }
     }
     else {
         const { data } = await axios.get(`https://api.mixcloud.com/search/?q=${q}&type=cloudcast`)
-        gTracks = [...data.data]
-        console.log('storageArr after call:', gTracks)
-        asyncStorageService.postMany(TRACK_KEY, gTracks)
-        return Promise.resolve(gTracks)
+        tracks = [...data.data]
+        console.log('storageArr after call:', tracks)
+        asyncStorageService.postMany(TRACK_KEY, tracks)
+        return Promise.resolve(tracks)
     }
 }
 

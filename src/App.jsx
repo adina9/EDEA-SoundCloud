@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { useEffect } from "react";
 import { TrackApp } from './pages/TrackApp';
 import { HashRouter as Router } from 'react-router-dom'
@@ -15,18 +15,14 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(loadPrefs())
-  }, [])
+    console.log(isDarkMode);
+  }, [isDarkMode])
 
   return (
-    <div className={`App ${isDarkMode ? '' : 'light'}`}>
+    <div className={`App ${isDarkMode ? 'dark' : ''}`}>
       <MusicNoteRoundedIcon className='music-icon pos a' />
-      <Router>
-        <Switch>
-          <Route path='/' component={TrackApp} />
-        </Switch>
-      </Router>
-      {/* <ToggleWrapper value={isDarkMode} onUpdate={(val) => { dispatch(setMode(val)) }} /> */}
-
+      <Router><Route path='/' component={TrackApp} /></Router>
+      <ToggleWrapper value={isDarkMode} onUpdate={(val) => { dispatch(setMode(val)) }} />
     </div>
   );
 }

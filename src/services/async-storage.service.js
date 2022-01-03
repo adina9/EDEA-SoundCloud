@@ -1,24 +1,10 @@
-
-const delay = 700;
-
 export const asyncStorageService = {
   query,
   get,
   post,
-  put,
-  remove,
-  postMany,
-  queryWithDelay
+  put
 }
 
-function queryWithDelay(entityType) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(query(entityType));
-    }, delay)
-  })
-
-}
 
 function query(entityType) {
   var entities = JSON.parse(localStorage.getItem(entityType)) || []
@@ -33,19 +19,9 @@ function get(entityType, entityKey) {
 }
 
 function post(entityType, newEntity) {
-  // newEntity._id = utilService.makeId()
   return query(entityType)
     .then(entities => {
       entities.push(newEntity);
-      _save(entityType, entities)
-      return entities;
-    })
-}
-
-function postMany(entityType, newEntities) {
-  return query(entityType)
-    .then(entities => {
-      entities.push(...newEntities);
       _save(entityType, entities)
       return entities;
     })
@@ -58,16 +34,6 @@ function put(entityType, updatedEntity) {
       entities.splice(idx, 1, updatedEntity)
       _save(entityType, entities)
       return entities;
-    })
-}
-
-function remove(entityType, entityId) {
-  return query(entityType)
-    .then(entities => {
-      const idx = entities.findIndex(entity => entity._id === entityId);
-      const [removed] = entities.splice(idx, 1)
-      _save(entityType, entities)
-      return removed
     })
 }
 

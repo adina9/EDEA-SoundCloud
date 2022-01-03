@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Switch, Route, NavLink, useLocation } from 'react-router-dom'
+
+//icons:
+import YoutubeSearchedForRoundedIcon from '@material-ui/icons/YoutubeSearchedForRounded';
+
+//actions:
+import { queryTracks, chooseTrack, setLastSearch } from "../store/actions/trackAction";
+import { loadPrefs, setDisplay } from "../store/actions/prefsAction";
+
+//cmps:
+import { TrackDetails } from './TrackDetails';
+import { RecentSearches } from './RecentSearches';
 import { AppSearch } from "../cmps/AppSearch";
 import { BtnsControl } from "../cmps/BtnsControl";
 import { TrackList } from "../cmps/TrackList";
-import { queryTracks, chooseTrack, setLastSearch } from "../store/actions/trackAction";
-import { Switch, Route, NavLink, useLocation } from 'react-router-dom'
-import { TrackDetails } from './TrackDetails';
-import { RecentSearches } from './RecentSearches';
-
-import YoutubeSearchedForRoundedIcon from '@material-ui/icons/YoutubeSearchedForRounded';
-import { loadPrefs } from "../store/actions/prefsAction";
 
 export const TrackApp = ({ history: { push } }) => {
 
@@ -17,16 +22,15 @@ export const TrackApp = ({ history: { push } }) => {
 
     const dispatch = useDispatch()
     const { tracks, currTrack, searches, lastSearch } = useSelector(state => state.trackModule)
-    const { isDarkMode, isTile } = useSelector(state => state.prefsModule)
+    const { isTile } = useSelector(state => state.prefsModule)
 
     const [currTracks, setCurrTracks] = useState([])
 
-
+    //two seperate useEffect just for clarifying
     useEffect(() => {
         dispatch(queryTracks(lastSearch))
         setCurrTracks(tracks.slice(0, 6))
         dispatch(loadPrefs())
-        console.log('pathname', pathname);
         if (pathname.length === 1) dispatch(chooseTrack(null))
     }, [lastSearch, pathname])
 
@@ -36,7 +40,7 @@ export const TrackApp = ({ history: { push } }) => {
     }, [currTrack, tracks])
 
 
-    const onQueryTracks = async (searchBy) => {
+    const onQueryTracks = (searchBy) => {
         dispatch(queryTracks(searchBy))
     }
 
@@ -44,9 +48,10 @@ export const TrackApp = ({ history: { push } }) => {
         dispatch(setLastSearch(searches.includes(search), search))
     }
 
-    const onChooseTrack = async (track) => {
+    const onChooseTrack = (track) => {
         dispatch(chooseTrack(track))
     }
+    const onSetDisplay = async (val) => dispatch(setDisplay(val))
 
     const onBackOrNext = (val) => {
         var _tracks
@@ -63,9 +68,8 @@ export const TrackApp = ({ history: { push } }) => {
 
     const isOnMainPage = () => pathname.length === 1
 
-
     return (
-        <section className="track-app flex a-center col pos r">
+        <section className="track-app  flex a-center col pos r">
             {isOnMainPage() && <AppSearch onSearch={onQueryTracks} saveSearch={onSaveSearch} lastSearch={lastSearch} />}
             {pathname.length < 10 && <NavLink to='/searches' activeClassName="isOnSearch"><YoutubeSearchedForRoundedIcon titleAccess='Your last searches' className="search-icon pos a" /></NavLink>}
             {!currTrack && isOnMainPage() && < TrackList tracks={currTracks} isTile={isTile} onChooseTrack={onChooseTrack} />}
@@ -73,7 +77,7 @@ export const TrackApp = ({ history: { push } }) => {
                 <Route path='/searches' exact component={RecentSearches} />
                 <Route path="/track/:key" component={TrackDetails} />
             </Switch>
-            {!currTrack && isOnMainPage() && <BtnsControl backOrNext={onBackOrNext} isOnMainPage={true} />}
+            {!currTrack && isOnMainPage() && <BtnsControl backOrNext={onBackOrNext} onSetDisplay={onSetDisplay} isTile={isTile} isOnMainPage={true} />}
 
         </section>
     )

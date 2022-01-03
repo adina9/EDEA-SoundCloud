@@ -5,7 +5,7 @@ import NightsStayIcon from '@material-ui/icons/NightsStay';
 
 export const ToggleWrapper = ({ value, onUpdate }) => {
     return (
-        <div className="toggle-wrapper flex a-center j-center pos a">
+        <div className="toggle-wrapper pos a">
             <div className="toggle checkcross pa">
                 <input type="text" />
                 <label className="toggle-item" style={{ backgroundColor: value ? '#969696b5' : '#ffeaab' }} onClick={() => onUpdate(!value)}>

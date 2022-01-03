@@ -11,22 +11,9 @@ body {
     margin: 0;
 }
 
-//colors
-// bgc-app:  #191d1f
-// music-icon-app: $b-clr
-// app-search: $c-clr
-// input: 0b0b0b
-// search-icon isActive: ffb74d
-//btns-control-not toggle: $c-clr
-// search-preview bgc: $e-clr
-// search-preview clr: $d-clr
-// search-preview bgc-hover: $f-clr
-// track-preview div bgc: $g-clr
-
 .App {
-   
     @include flex-center {
-        background-color: $a-clr;
+        background-color: var(--a-clr);
         height: 100vh;
         width: 100vw;
     }
@@ -34,10 +21,30 @@ body {
         font-size: 50vh;
         left: -40px;
         bottom: 4%;
-        color: $b-clr;
+        color: var(--b-clr);
     }
-    // &.light {
-    // }
+    --a-clr: #e4e4e4;
+    --c-clr: #1e1e1efa;
+    --b-clr: #5a5a5a;
+    --d-clr: #222222;
+    --e-clr: #b6b6b6;
+    --f-clr: white;
+    --g-clr: #575757;
+    --h-clr: #fcfcfc;
+    --i-clr: #b6b6b6;
+    --j-clr: #969696fa;
+    &.dark {
+        --a-clr: #191d1f;
+        --b-clr: #0b0b0b;
+        --c-clr: #cdcdcd;
+        --d-clr: #ffb74d;
+        --e-clr: #16181a;
+        --f-clr: #494f53;
+        --g-clr: black;
+        --h-clr: #25292c;
+        --i-clr: #494f53;
+        --j-clr: var(--c-clr);
+    }
 }
 
 a {
@@ -47,12 +54,4 @@ a {
 
 button {
     cursor: pointer;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
 }

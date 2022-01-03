@@ -1,13 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 
-
-
 export const AppSearch = ({ onSearch, saveSearch, lastSearch }) => {
 
     const [searchBy, setSearchBy] = useState('')
-    const [searchClass, setSearchClass] = useState('app-search')
-
 
     const inputRef = useRef(null)
 
@@ -15,10 +11,6 @@ export const AppSearch = ({ onSearch, saveSearch, lastSearch }) => {
         inputRef.current.focus()
         setSearchBy(lastSearch)
     }, [lastSearch])
-
-    useEffect(() => {
-        setSearchClass(prevClass => searchBy.length ? prevClass + ' focused' : 'app-search')
-    }, [searchBy])
 
     const handleChange = ev => {
         let search = ev.target.value
@@ -33,7 +25,7 @@ export const AppSearch = ({ onSearch, saveSearch, lastSearch }) => {
     }
 
     return (
-        <section className={searchClass} >
+        <section className='app-search' >
             <form onSubmit={onDoSearch}>
                 <input ref={inputRef} type="text" value={searchBy} name="name" placeholder="Search..." onChange={handleChange} autoComplete="off" />
                 <button className={`search-icon ${searchBy ? 'isActive' : ''}`}><SearchIcon /></button>

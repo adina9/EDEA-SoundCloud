@@ -1,6 +1,5 @@
 .app-search {
-    // background-color: #ff5722;
-    background-color: $c-clr;
+    background-color: var(--i-clr);
     width: 40%;
     height: 40px;
     margin-top: 4%;
@@ -17,18 +16,20 @@
             background-color: transparent;
             border: none;
             padding: 0 12px;
-            color: $b-clr;
+            color: black;
             font-size: large;
             font-family: monospace;
             &:focus {
                 outline: none;
             }
             &::placeholder {
-                color: $second-color;
+                color: black;
             }
         }
         .MuiSvgIcon-root {
             font-size: larger;
+            color: var(--a-clr);
+
         }
         .search-icon {
             @include flex-center {
@@ -41,15 +42,14 @@
                 background-color: transparent;
             }
             &.isActive {
-                background-color: $d-clr;
+                background-color: var(--d-clr);
                 cursor: pointer;
             }
         }
     }
-    &.focused input {
-        // background-color: #ff7e55;
-        // background-color: #fff;
-        // border-radius: 5px;
-        // height: 65%;
+    @include for-mobile-layout {
+        width: 70%;
+        left: 5%;
+        position: absolute;
     }
 }

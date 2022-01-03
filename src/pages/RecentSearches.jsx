@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadSearches, setLastSearch } from "../store/actions/trackAction";
+
+//icons:
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
 
-// import LibraryMusicRoundedIcon from '@material-ui/icons/LibraryMusicRounded';
+//actions:
+import { loadSearches, setLastSearch } from "../store/actions/trackAction";
+
+//cmps:
 import { BtnsControl } from '../cmps/BtnsControl';
 import { NoResults } from '../cmps/NoResults';
+
 
 export const RecentSearches = ({ history: { push } }) => {
 

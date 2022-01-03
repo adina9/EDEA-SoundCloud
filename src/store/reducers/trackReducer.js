@@ -10,11 +10,6 @@ export function trackReducer(state = initialState, action = {}) {
             return { ...state, tracks: action.tracks }
         case 'SET_TRACK':
             return { ...state, currTrack: action.choosedTrack }
-        // case 'ADD_SEARCH':
-        //     return {
-        //         ...state,
-        //         searches: [...action.searches]
-        //     }
         case 'SET_SEARCHES':
             return { ...state, searches: action.searches }
         case 'SET_LAST_SEARCH':

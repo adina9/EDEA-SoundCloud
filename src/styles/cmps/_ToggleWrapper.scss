@@ -10,9 +10,9 @@
     overflow: hidden;
     height: 50px;
     width: 180px;
-    bottom: 40px;
-    top: 4vh;
-    left: 0;
+    bottom: 16vh;
+    left: 4vh;
+    @include flex-center;
     .toggle {
         display: inline-block;
         input {
@@ -107,5 +107,9 @@
                 transition: 0.3s ease;
             }
         }
+    }
+    @include for-mobile-layout{
+        left: 20%;
+        bottom: 3%;
     }
 }

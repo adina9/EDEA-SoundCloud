@@ -8,12 +8,12 @@
     .track-preview,
     .search-preview {
         @include flex-center {
-            padding: 0 12px;
-            background-color: $e-clr;
+            padding: 0 20px;
+            background-color: var(--e-clr);
             border-radius: 5px;
-            color: $d-clr;
+            color: var(--d-clr);
             height: 15%;
-            font-size: medium;
+            font-size: 2vh;
             font-family: cursive;
             transition: 0.2s ease;
             cursor: pointer;
@@ -25,7 +25,7 @@
             }
             &:hover {
                 box-shadow: 3px 6px 20px 0px #0000006e;
-                background-color: $f-clr;
+                background-color: var(--f-clr);
             }
         }
         p {
@@ -47,23 +47,31 @@
             justify-content: space-around;
             p {
                 margin: 110px 0 0;
-                font-size: small;
+                font-size: 1.8vh;
+                text-align: center;
             }
             div {
                 @include flex-center {
                     top: 15px;
-                    background-color: $g-clr;
+                    background-color: var(--g-clr);
                     width: 100%;
                 }
                 img {
                     display: block;
                     filter: grayscale(0.5);
-                    box-shadow: 0px 0px 0px 7px #25292c;
+                    box-shadow: 0px 0px 0px 7px var(--h-clr);
                 }
             }
             svg {
                 display: none;
             }
         }
+    }
+}
+.track-list.tile {
+    @include for-mobile-layout {
+        top: 10%;
+        grid-template-columns: repeat(2, minmax(auto, 1fr));
+        overflow-y: auto;
     }
 }
