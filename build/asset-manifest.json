@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/EDEA-SoundCloud/static/css/main.1845daac.chunk.css",
+    "main.css": "/EDEA-SoundCloud/static/css/main.88bec105.chunk.css",
     "main.js": "/EDEA-SoundCloud/static/js/main.4eaa45b3.chunk.js",
     "main.js.map": "/EDEA-SoundCloud/static/js/main.4eaa45b3.chunk.js.map",
     "runtime-main.js": "/EDEA-SoundCloud/static/js/runtime-main.ea86e63e.js",
@@ -12,14 +12,14 @@
     "index.html": "/EDEA-SoundCloud/index.html",
     "service-worker.js": "/EDEA-SoundCloud/service-worker.js",
     "service-worker.js.map": "/EDEA-SoundCloud/service-worker.js.map",
-    "static/css/main.1845daac.chunk.css.map": "/EDEA-SoundCloud/static/css/main.1845daac.chunk.css.map",
+    "static/css/main.88bec105.chunk.css.map": "/EDEA-SoundCloud/static/css/main.88bec105.chunk.css.map",
     "static/js/2.077b8b87.chunk.js.LICENSE.txt": "/EDEA-SoundCloud/static/js/2.077b8b87.chunk.js.LICENSE.txt",
     "static/media/global.scss": "/EDEA-SoundCloud/static/media/Montserrat-Regular.3cd78665.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.ea86e63e.js",
     "static/js/2.077b8b87.chunk.js",
-    "static/css/main.1845daac.chunk.css",
+    "static/css/main.88bec105.chunk.css",
     "static/js/main.4eaa45b3.chunk.js"
   ]
 }
