@@ -4,7 +4,7 @@
     > *:not(.toggle-wrapper) {
         display: flex;
         cursor: pointer;
-        color: wheat;
+        color: $c-clr;
         transition: 0.3s ease;
         z-index: 1;
         .MuiSvgIcon-root {

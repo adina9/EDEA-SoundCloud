@@ -59,6 +59,5 @@ async function choose(track) {
 
 async function saveSearch(search) {
     const searches = await asyncStorageService.post(SEARCH_KEY, search)
-    console.log('searches:', searches)
     return Promise.resolve(searches)
 }

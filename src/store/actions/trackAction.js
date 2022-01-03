@@ -14,7 +14,7 @@ export function queryTracks(q) {
 export function chooseTrack(track) {
     return async dispatch => {
         try {
-            const choosedTrack = await trackService.choose(track)
+            const choosedTrack = track ? await trackService.choose(track) : null
             dispatch({ type: 'SET_TRACK', choosedTrack })
         } catch (err) {
             console.log('err in trackAction in loadTracks:', err);

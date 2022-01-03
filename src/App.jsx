@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { TrackApp } from './pages/TrackApp';
 import { HashRouter as Router } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPrefs } from './store/actions/prefsAction';
+import { loadPrefs, setMode } from './store/actions/prefsAction';
 import MusicNoteRoundedIcon from '@material-ui/icons/MusicNoteRounded';
 import { ToggleWrapper } from './cmps/ToggleWrapper';
 
@@ -18,14 +18,14 @@ export const App = () => {
   }, [])
 
   return (
-    <div className={`App ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`App ${isDarkMode ? '' : 'light'}`}>
       <MusicNoteRoundedIcon className='music-icon pos a' />
       <Router>
         <Switch>
           <Route path='/' component={TrackApp} />
         </Switch>
       </Router>
-      <ToggleWrapper value={isDarkMode} onUpdate={() => { }} />
+      {/* <ToggleWrapper value={isDarkMode} onUpdate={(val) => { dispatch(setMode(val)) }} /> */}
 
     </div>
   );

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToggleWrapper } from './ToggleWrapper';
 
 
-export const BtnsControl = ({ backOrNext }) => {
+export const BtnsControl = ({ backOrNext, isOnMainPage }) => {
 
     const [darkMode, setIsDarkMode] = useState(false)
 
@@ -32,9 +32,9 @@ export const BtnsControl = ({ backOrNext }) => {
                 {arrowIcons.map((arrow, idx) => <div key={idx} onClick={() => backOrNext(!!idx)}>{arrow}</div>)}
             </div>
 
-            <div className="disaply-btns flex j-between">{displayIcons.map((icon, idx) =>
+            {isOnMainPage && <div className="disaply-btns flex j-between">{displayIcons.map((icon, idx) =>
                 <div style={{ color: isTile === !!idx ? 'black' : '' }} key={idx} onClick={() => onSetDisplay(!!idx)}>{icon}</div>
-            )}</div>
+            )}</div>}
         </div >
     );
 };

@@ -9,9 +9,9 @@
     .search-preview {
         @include flex-center {
             padding: 0 12px;
-            background-color: #16181a;
+            background-color: $e-clr;
             border-radius: 5px;
-            color: #ffb74d;
+            color: $d-clr;
             height: 15%;
             font-size: medium;
             font-family: cursive;
@@ -25,7 +25,7 @@
             }
             &:hover {
                 box-shadow: 3px 6px 20px 0px #0000006e;
-                background-color: #494f53;
+                background-color: $f-clr;
             }
         }
         p {
@@ -52,7 +52,7 @@
             div {
                 @include flex-center {
                     top: 15px;
-                    background-color: black;
+                    background-color: $g-clr;
                     width: 100%;
                 }
                 img {

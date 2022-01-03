@@ -34,7 +34,7 @@
 @mixin svg-icon {
     font-size: xxx-large;
     &:hover {
-        color: black;
+        color: $g-clr;
     }
     @content;
 }

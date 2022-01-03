@@ -3,18 +3,18 @@ import SearchIcon from '@material-ui/icons/Search';
 
 
 
-export const AppSearch = ({ onSearch, saveSearch, style, lastSearch }) => {
+export const AppSearch = ({ onSearch, saveSearch, lastSearch }) => {
 
     const [searchBy, setSearchBy] = useState('')
     const [searchClass, setSearchClass] = useState('app-search')
+
 
     const inputRef = useRef(null)
 
     useEffect(() => {
         inputRef.current.focus()
-        console.log('lastSearch', lastSearch);
         setSearchBy(lastSearch)
-    }, [])
+    }, [lastSearch])
 
     useEffect(() => {
         setSearchClass(prevClass => searchBy.length ? prevClass + ' focused' : 'app-search')

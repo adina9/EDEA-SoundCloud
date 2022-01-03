@@ -1,6 +1,6 @@
 .app-search {
     // background-color: #ff5722;
-    background-color: #cdcdcd;
+    background-color: $c-clr;
     width: 40%;
     height: 40px;
     margin-top: 4%;
@@ -17,7 +17,7 @@
             background-color: transparent;
             border: none;
             padding: 0 12px;
-            color: #0b0b0b;
+            color: $b-clr;
             font-size: large;
             font-family: monospace;
             &:focus {
@@ -41,7 +41,7 @@
                 background-color: transparent;
             }
             &.isActive {
-                background-color: #ffb74d;
+                background-color: $d-clr;
                 cursor: pointer;
             }
         }

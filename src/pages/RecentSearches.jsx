@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadSearches, setLastSearch } from "../store/actions/trackAction";
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import EventNoteRoundedIcon from '@material-ui/icons/EventNoteRounded';
+
 // import LibraryMusicRoundedIcon from '@material-ui/icons/LibraryMusicRounded';
-import { Link } from 'react-router-dom';
 import { BtnsControl } from '../cmps/BtnsControl';
+import { NoResults } from '../cmps/NoResults';
 
 export const RecentSearches = ({ history: { push } }) => {
 
@@ -39,20 +40,15 @@ export const RecentSearches = ({ history: { push } }) => {
     }
 
     return (
-        !searches.length ? <div className="no-search flex col pos a j-between a-center">
-            <EventNoteRoundedIcon />
-            <p>no recent searches yet...</p>
-            <Link to='/' className="back-to-tracks flex a-center">
-                <small>back to tracks</small>
-            </Link>
-        </div> :
+        !searches.length ? <NoResults txt='no recent searches yet...' icon={<EventNoteRoundedIcon />} />
+            :
             <div className='recent-searches flex col'>
                 <p>Your searches</p>
                 {currSearches.map((search, idx) => <div className='search-preview' onClick={() => researchTrack(search)}
                     key={idx}>
                     <SearchRoundedIcon />
                     {search}</div>)}
-                <BtnsControl backOrNext={onBackOrNext} />
+                <BtnsControl backOrNext={onBackOrNext} isOnMainPage={false} />
             </div>
     );
 };

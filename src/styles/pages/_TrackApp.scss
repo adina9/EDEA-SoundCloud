@@ -21,7 +21,7 @@
     }
     a:not(.back-to-tracks) :not(.track-details) {
         position: absolute;
-        color: #cdcdcd;
+        color: $c-clr;
         right: 5%;
         top: 5%;
         width: 32px;
