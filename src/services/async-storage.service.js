@@ -2,8 +2,10 @@ export const asyncStorageService = {
   query,
   get,
   post,
-  put
+  put,
+  postMany,
 }
+
 
 
 function query(entityType) {
@@ -27,6 +29,15 @@ function post(entityType, newEntity) {
     })
 }
 
+function postMany(entityType, newEntities) {
+  return query(entityType)
+    .then(entities => {
+      entities.push(...newEntities);
+      _save(entityType, entities)
+      return entities;
+    })
+}
+
 function put(entityType, updatedEntity) {
   return query(entityType)
     .then(entities => {
@@ -36,6 +47,7 @@ function put(entityType, updatedEntity) {
       return entities;
     })
 }
+
 
 function _save(entityType, entities) {
   localStorage.setItem(entityType, JSON.stringify(entities))
