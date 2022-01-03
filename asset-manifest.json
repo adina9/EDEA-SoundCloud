@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/EDEA-SoundCloud/static/css/main.1845daac.chunk.css",
-    "main.js": "/EDEA-SoundCloud/static/js/main.176cbf17.chunk.js",
-    "main.js.map": "/EDEA-SoundCloud/static/js/main.176cbf17.chunk.js.map",
+    "main.js": "/EDEA-SoundCloud/static/js/main.4eaa45b3.chunk.js",
+    "main.js.map": "/EDEA-SoundCloud/static/js/main.4eaa45b3.chunk.js.map",
     "runtime-main.js": "/EDEA-SoundCloud/static/js/runtime-main.ea86e63e.js",
     "runtime-main.js.map": "/EDEA-SoundCloud/static/js/runtime-main.ea86e63e.js.map",
-    "static/js/2.e08cdca2.chunk.js": "/EDEA-SoundCloud/static/js/2.e08cdca2.chunk.js",
-    "static/js/2.e08cdca2.chunk.js.map": "/EDEA-SoundCloud/static/js/2.e08cdca2.chunk.js.map",
+    "static/js/2.077b8b87.chunk.js": "/EDEA-SoundCloud/static/js/2.077b8b87.chunk.js",
+    "static/js/2.077b8b87.chunk.js.map": "/EDEA-SoundCloud/static/js/2.077b8b87.chunk.js.map",
     "static/js/3.719b2187.chunk.js": "/EDEA-SoundCloud/static/js/3.719b2187.chunk.js",
     "static/js/3.719b2187.chunk.js.map": "/EDEA-SoundCloud/static/js/3.719b2187.chunk.js.map",
     "index.html": "/EDEA-SoundCloud/index.html",
     "service-worker.js": "/EDEA-SoundCloud/service-worker.js",
     "service-worker.js.map": "/EDEA-SoundCloud/service-worker.js.map",
     "static/css/main.1845daac.chunk.css.map": "/EDEA-SoundCloud/static/css/main.1845daac.chunk.css.map",
-    "static/js/2.e08cdca2.chunk.js.LICENSE.txt": "/EDEA-SoundCloud/static/js/2.e08cdca2.chunk.js.LICENSE.txt",
+    "static/js/2.077b8b87.chunk.js.LICENSE.txt": "/EDEA-SoundCloud/static/js/2.077b8b87.chunk.js.LICENSE.txt",
     "static/media/global.scss": "/EDEA-SoundCloud/static/media/Montserrat-Regular.3cd78665.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.ea86e63e.js",
-    "static/js/2.e08cdca2.chunk.js",
+    "static/js/2.077b8b87.chunk.js",
     "static/css/main.1845daac.chunk.css",
-    "static/js/main.176cbf17.chunk.js"
+    "static/js/main.4eaa45b3.chunk.js"
   ]
 }
